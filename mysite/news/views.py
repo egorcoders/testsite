@@ -5,5 +5,5 @@ from .models import News
 
 
 def index(request):
-    news = News.objects.all()
+    news = News.objects.order_by('-published')
     return render(request, 'news/index.html', {'news': news, 'title': 'Список'})

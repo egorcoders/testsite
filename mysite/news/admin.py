@@ -7,7 +7,7 @@ class NewsAdmin(admin.ModelAdmin):
     list_display = (
         'pk', 'title',
         'content', 'category',
-        'is_published', 'updated'
+        'is_published', 'updated', 'image'
     )
     list_display_links = ('title',)
     search_fields = ('title', 'content')

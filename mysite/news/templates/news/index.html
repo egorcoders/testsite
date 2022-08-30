@@ -26,11 +26,13 @@
 
     {% for i in news %}
       <div class="card m-3">
-        <img src="{{ i.image.url }}" alt="logo">
+        {% if i.image %}
+          <img src="{{ i.image.url }}" height=100 src="{{ i.image.alt="logo">
+        {% endif %}
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h5 class="card-title">{{ i.title|title }}</h5>
+          <p class="card-text">{% lorem 3 p %}</p>
+          <p class="card-text"><small class="text-muted">Category: {{ i.category|title }}</small></p>
         </div>
       </div>
     {% endfor %}

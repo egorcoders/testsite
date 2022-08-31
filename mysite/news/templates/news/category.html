@@ -12,9 +12,10 @@
         <img src="{{ i.image.url }}" height=100 src="{{ i.image.alt="logo">
       {% endif %}
       <div class="card-body">
-        <h5 class="card-title">{{ i.title|title }}</h5>
+        <h5 class="card-title"><a href='{{ i.get_absolute_url }}'>{{ i.title|title }}</a></h5>
         <p class="card-text">{% lorem 3 p %}</p>
-        <p class="card-text"><small class="text-muted">Category: <a href='{% url 'category' i.pk %}'>{{ i.category|title }}</a></small></p>
+        
+        <p class="card-text"><small class="text-muted">Category: <a href='{{ i.category.get_absolute_url }}'>{{ i.category|title }}</a></small></p>
       </div>
     </div>
   {% endfor %}

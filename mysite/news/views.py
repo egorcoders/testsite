@@ -19,3 +19,9 @@ def category(request, category_id):
         'category': category,
     }
     return render(request, 'news/category.html', context)
+
+
+def single_news(request, news_id):
+    news = News.objects.get(pk=news_id)
+    context = {'news': news}
+    return render(request, 'news/single_news.html', context)

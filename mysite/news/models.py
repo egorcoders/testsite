@@ -1,5 +1,6 @@
 from tabnanny import verbose
 from django.db import models
+from django.urls import reverse
 
 
 class News(models.Model):
@@ -30,6 +31,9 @@ class News(models.Model):
         verbose_name_plural = 'Новости'
         ordering = ('title',)
 
+    def get_absolute_url(self):
+        return reverse('single_news', kwargs={'news_id': self.pk})
+
     def __str__(self):
         return self.title
 
@@ -41,6 +45,9 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ('-title',)
+
+    def get_absolute_url(self):
+        return reverse("category", kwargs={"category_id": self.pk})
 
     def __str__(self) -> str:
         return self.title

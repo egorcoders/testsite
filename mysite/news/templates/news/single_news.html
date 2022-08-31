@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block 'list_group' %}
+  {% include 'include/_list_group.html' %}
+{% endblock %}
+
+{% block 'content' %}
+  <h1>{{ news.title }}</h1>
+  <div class="card mb-3">
+    {% if news.image %}
+      <img src="{{ news.image.url }}" height=100 src="{{ news.image.alt="logo">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ news.title|title }}</h5>
+      <p class="card-text">{% lorem 3 p %}</p>
+      
+      <p class="card-text"><small class="text-muted">Category: <a href='{{ news.category.get_absolute_url }}'>{{ news.category.title|title }}</a></small></p>
+    </div>
+  </div>
+{% endblock %}

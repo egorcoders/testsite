@@ -1,29 +1,22 @@
 {% extends 'base.html' %}
 
+
 {% block 'list_group' %}
-  <div class="col-md-4">
-    <div class="list-group">
-      {% for c in categories %}
-        <a href="{% url 'category' c.id %}" class="list-group-item list-group-item-action">{{ c.title  }}</a>
-      {% endfor %}
-    </div>
-  </div>
+  {% include 'include/_list_group.html' %}
 {% endblock %}
 
 {% block 'content' %}
-  <div class="col-md-8">
-    <h1>Новости со всего света</h1>
-    {% for i in news %}
-      <div class="card mb-3">
-        {% if i.image %}
-          <img src="{{ i.image.url }}" height=100 src="{{ i.image.alt="logo">
-        {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{ i.title|title }}</h5>
-          <p class="card-text">{% lorem 3 p %}</p>
-          <p class="card-text"><small class="text-muted">Category: {{ i.category|title }}</small></p>
-        </div>
+  <h1>Новости со всего света</h1>
+  {% for i in news %}
+    <div class="card mb-3">
+      {% if i.image %}
+        <img src="{{ i.image.url }}" height=100 src="{{ i.image.alt="logo">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ i.title|title }}</h5>
+        <p class="card-text">{% lorem 3 p %}</p>
+        <p class="card-text"><small class="text-muted">Category: {{ i.category|title }}</small></p>
       </div>
-    {% endfor %}
-  </div>
+    </div>
+  {% endfor %}
 {% endblock %}

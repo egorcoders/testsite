@@ -8,7 +8,6 @@ def index(request):
     categories = Category.objects.all()
     context = {
         'news': news,
-        'title': 'Список',
         'categories': categories,
     }
     return render(request, 'news/index.html', context)

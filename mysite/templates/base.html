@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+    {% include 'include/head.html' %}
+  <body>
+
+    {% include 'include/navbar.html' %}
+
+    <div class="row">
+      {% block 'list_group' %}{% endblock %}
+      {% block 'content' %}{% endblock %}
+    </div>
+
+    {% include 'include/footer.html' %}
+
+  </body>
+</html>

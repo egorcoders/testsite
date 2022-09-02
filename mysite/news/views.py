@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
+from .forms import NewsForm
 from .models import Category, News
 
 
@@ -25,3 +26,13 @@ def single_news(request, news_id):
     news = get_object_or_404(News, pk=news_id)
     context = {'news': news}
     return render(request, 'news/single_news.html', context)
+
+
+def add_news(request):
+    title = 'Форма добавления новости'
+    if request.method == 'POST':
+        pass
+    else:
+        form = NewsForm()
+    context = {'form': form, 'title': title}
+    return render(request, 'news/add_news.html', context)

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block 'list_group' %}
+  {% include 'include/_list_group.html' %}
+{% endblock %}
+
+{% block 'content' %}
+  <h1>{{ title }}</h1>
+
+  <form action="{% url 'add_news' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary btn-block">Отправить новость</button>
+    </div>
+  </form>
+
+{% endblock %}
